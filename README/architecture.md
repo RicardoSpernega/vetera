@@ -47,8 +47,10 @@ sequenceDiagram
   APP->>INF: GetAchievementsAsync(id)
   INF->>RAWG: GET /games/{id}/achievements
   RAWG-->>INF: achievements
-  APP-->>API: GameDetailsDto consolidado
-  API-->>UI: ApiResponse<GameDetailsDto>
+  APP-->>API: IReadOnlyCollection<GameDetailsDto>
+  API-->>UI: ApiResponse<IReadOnlyCollection<GameDetailsDto>>
+  UI->>UI: click em "Ver achievements"
+  UI->>UI: abre modal com cards de achievements
 ```
 
 ## DDD aplicado

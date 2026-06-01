@@ -61,7 +61,9 @@ Configuracao da API no frontend:
 3. Iniciar frontend
 4. Abrir browser em http://localhost:4200
 5. Pesquisar por "elden ring"
-6. Verificar retorno de dados do jogo + achievements
+6. Verificar retorno da lista de jogos
+7. Clicar em "Ver achievements" em um jogo para abrir a modal
+8. Confirmar cards de achievements em layout responsivo
 
 ## 6) Testes e qualidade
 

@@ -36,7 +36,7 @@ public sealed class RawgGateway(
 
     public async Task<IReadOnlyCollection<RawgAchievement>> GetAchievementsAsync(int gameId, CancellationToken cancellationToken)
     {
-        var path = $"games/{gameId}/achievements?key={_options.ApiKey}";
+        var path = $"games/{gameId}/achievements?page_size={int.MaxValue}&key={_options.ApiKey}";
         var payload = await SendAsync<RawgAchievementsResponse>(path, cancellationToken);
 
         return payload.Results

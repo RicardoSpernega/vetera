@@ -20,7 +20,8 @@
 - botao de busca
 - debounce automatico no input
 - exibicao de jogo (imagem, nome, descricao)
-- cards responsivos de achievements
+- botao "Ver achievements" em cada jogo
+- modal de achievements com cards lado a lado
 - loading skeleton
 - erro amigavel
 - estado de nao encontrado
@@ -44,6 +45,7 @@ Somente com backend .NET:
 
 - layout com breakpoints para mobile/desktop
 - cards adaptativos com CSS grid
+- modal responsiva para achievements (desktop e mobile)
 - feedback visual de carregamento e erro
 
 ## Qualidade

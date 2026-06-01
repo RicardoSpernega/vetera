@@ -7,7 +7,8 @@ Projeto fullstack para desafio tecnico consumindo a API RAWG com backend ASP.NET
 A aplicacao permite pesquisar um jogo pelo nome e visualizar:
 - imagem de capa do jogo
 - nome e descricao
-- lista de achievements (imagem, titulo e descricao)
+- botao por jogo para abrir achievements
+- achievements em modal com cards (imagem, titulo e descricao)
 
 Regra central do desafio respeitada:
 - o frontend nao acessa a RAWG diretamente
@@ -51,18 +52,20 @@ Resposta:
 
 {
 	"success": true,
-	"data": {
-		"name": "Elden Ring",
-		"description": "...",
-		"backgroundImage": "https://...",
-		"achievements": [
-			{
-				"title": "...",
-				"description": "...",
-				"image": "https://..."
-			}
-		]
-	},
+	"data": [
+		{
+			"name": "Elden Ring",
+			"description": "...",
+			"backgroundImage": "https://...",
+			"achievements": [
+				{
+					"title": "...",
+					"description": "...",
+					"image": "https://..."
+				}
+			]
+		}
+	],
 	"error": null
 }
 
@@ -101,6 +104,7 @@ Resumo rapido:
 
 - [ ] Home com busca
 - [ ] Resultado de jogo encontrado
+- [ ] Modal de achievements por jogo
 - [ ] Estado de erro amigavel
 - [ ] Estado vazio/nao encontrado
 

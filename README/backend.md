@@ -45,10 +45,14 @@
 GET /api/games/search?name=elden ring
 
 Fluxo:
-1. SearchFirstGameAsync na RAWG
-2. GetGameDetailsAsync por id
-3. GetAchievementsAsync por id
-4. consolidacao e retorno
+1. SearchGamesAsync na RAWG
+2. GetGameDetailsAsync por id para cada resultado
+3. GetAchievementsAsync por id para cada resultado
+4. consolidacao e retorno de colecao de GameDetailsDto
+
+Consumo no frontend:
+- o frontend lista os jogos retornados
+- cada card possui botao para abrir achievements em modal
 
 ## Boas praticas aplicadas
 
