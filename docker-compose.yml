@@ -1,0 +1,24 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: vetera-backend
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:7219
+      Rawg__ApiKey: ${RAWG_API_KEY}
+      Rawg__BaseUrl: https://api.rawg.io/api/
+      Rawg__CacheMinutes: 5
+    ports:
+      - "7219:7219"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: vetera-frontend
+    depends_on:
+      - backend
+    ports:
+      - "4200:80"

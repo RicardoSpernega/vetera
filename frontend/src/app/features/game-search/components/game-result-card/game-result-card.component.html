@@ -1,0 +1,47 @@
+<mat-card class="game-card">
+  <img
+    appImgFallback
+    src="{{ game().backgroundImage }}"
+    alt="Imagem do jogo"
+    class="game-cover"
+  />
+  <div class="game-content">
+    <h2>{{ game().name }}</h2>
+    <p>{{ game().description || 'Sem descricao disponivel.' }}</p>
+  </div>
+</mat-card>
+
+<mat-card class="achievements-card">
+  <mat-expansion-panel class="achievements-overview" [expanded]="false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>Conquistas</mat-panel-title>
+      <mat-panel-description>{{ game().achievements.length }} itens</mat-panel-description>
+    </mat-expansion-panel-header>
+
+    @if (game().achievements.length === 0) {
+      <p class="empty-achievements">Esse jogo não possui conquistas disponíveis.</p>
+    } @else {
+      <mat-accordion class="achievements-accordion">
+        @for (achievement of game().achievements; track achievement.title + $index) {
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>{{ achievement.title }}</mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <ng-template matExpansionPanelContent>
+              <div class="achievement-content">
+                <img
+                  appImgFallback
+                  src="{{ achievement.image }}"
+                  alt="Imagem da conquista"
+                  class="achievement-image"
+                />
+                <p>{{ achievement.description || 'Sem descricao para esta conquista.' }}</p>
+              </div>
+            </ng-template>
+          </mat-expansion-panel>
+        }
+      </mat-accordion>
+    }
+  </mat-expansion-panel>
+</mat-card>

@@ -1,0 +1,42 @@
+<section class="hero">
+  <h1>RAWG Explorer</h1>
+  <p>Pesquisa de jogos e achievements consumindo apenas a API .NET 10.</p>
+
+  <div class="search-row">
+    <mat-form-field class="search-input" appearance="outline">
+      <mat-label>Buscar jogo</mat-label>
+      <input matInput [formControl]="searchControl" placeholder="Ex.: Elden Ring" />
+      <mat-icon matSuffix>sports_esports</mat-icon>
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" (click)="onSearchClick()">Buscar</button>
+  </div>
+</section>
+
+@if (loadingService.isLoading()) {
+  <mat-card class="state-card">
+    <app-loading-skeleton [lines]="6"></app-loading-skeleton>
+  </mat-card>
+}
+
+@if (!loadingService.isLoading() && errorMessage()) {
+  <mat-card class="state-card error-card">
+    <h2>Ops, nao foi possivel concluir a busca</h2>
+    <p>{{ errorMessage() }}</p>
+  </mat-card>
+}
+
+@if (!loadingService.isLoading() && !errorMessage() && games().length > 0) {
+  <section class="games-list">
+    @for (game of games(); track game.name + game.backgroundImage) {
+      <app-game-result-card [game]="game"></app-game-result-card>
+    }
+  </section>
+}
+
+@if (!loadingService.isLoading() && !errorMessage() && hasSearched() && games().length === 0) {
+  <mat-card class="state-card">
+    <h2>Nenhum jogo encontrado</h2>
+    <p>Tente outro termo de busca.</p>
+  </mat-card>
+}

@@ -1,0 +1,27 @@
+.skeleton-container {
+  display: grid;
+  gap: 12px;
+}
+
+.skeleton-line {
+  height: 14px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #dce6e8 25%, #f2f6f7 50%, #dce6e8 75%);
+  background-size: 220% 100%;
+  animation: shimmer 1.2s infinite;
+}
+
+.skeleton-line.title {
+  height: 22px;
+  width: 60%;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 100% 0;
+  }
+
+  to {
+    background-position: -100% 0;
+  }
+}
