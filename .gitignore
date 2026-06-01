@@ -4,6 +4,13 @@
 **/dist/
 **/coverage/
 
+# Binary artifacts
+*.dll
+*.exe
+*.pdb
+*.so
+*.dylib
+
 # Node
 **/node_modules/
 
@@ -12,6 +19,7 @@
 !.vscode/extensions.json
 !.vscode/launch.json
 !.vscode/tasks.json
+.vs/
 
 # OS
 .DS_Store
